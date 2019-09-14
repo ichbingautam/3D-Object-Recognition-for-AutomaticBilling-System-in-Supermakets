@@ -1,0 +1,36 @@
+item {
+   id: 1
+   name: 'Cinthol Soap'  
+}
+
+item {
+   id: 2
+   name: 'Coconut Oil'  
+}
+
+item {
+   id: 3
+   name: 'Colgate:Active Salt-200g' 
+}
+
+item {
+   id: 4
+   name: 'Colgate:Active Salt-50g'  
+}
+
+item {
+   id: 5
+   name: 'Ghadi Detergent Soap'  
+}
+
+item {
+   id: 6
+   name: 'Lemon Facewash'  
+}
+
+item {
+   id: 7
+   name: 'Neutrogena Moisturizer' 
+}
+
+

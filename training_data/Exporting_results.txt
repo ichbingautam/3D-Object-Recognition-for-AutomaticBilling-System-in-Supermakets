@@ -1,0 +1,525 @@
+Microsoft Windows [Version 10.0.17134.590]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+
+D:\Project\FinalYearProjects>cd models/research
+
+D:\Project\FinalYearProjects\models\research>python object_detection/export_inference_graph.py --input_type=image_tensor --pipeline_config_path=D:/Project/FinalYearProjects/Model-Training/mask_rcnn_inception_v2_coco.config --trained_checkpoint_prefix=D:/Project/FinalYearProjects/Model-Training/CP/model.ckpt-1000  --output_directory=D:/Project/FinalYearProjects/Model-Training/IG
+WARNING:tensorflow:From D:\Project\FinalYearProjects\models\research\object_detection\predictors\heads\box_head.py:93: calling reduce_mean (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+W0308 11:23:43.383663  1500 tf_logging.py:125] From D:\Project\FinalYearProjects\models\research\object_detection\predictors\heads\box_head.py:93: calling reduce_mean (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+WARNING:tensorflow:From D:\Project\FinalYearProjects\models\research\object_detection\exporter.py:280: get_or_create_global_step (from tensorflow.contrib.framework.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.get_or_create_global_step
+W0308 11:23:44.883528  1500 tf_logging.py:125] From D:\Project\FinalYearProjects\models\research\object_detection\exporter.py:280: get_or_create_global_step (from tensorflow.contrib.framework.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.get_or_create_global_step
+WARNING:tensorflow:From D:\Project\FinalYearProjects\models\research\object_detection\exporter.py:434: print_model_analysis (from tensorflow.contrib.tfprof.model_analyzer) is deprecated and will be removed after 2018-01-01.
+Instructions for updating:
+Use `tf.profiler.profile(graph, run_meta, op_log, cmd, options)`. Build `options` with `tf.profiler.ProfileOptionBuilder`. See README.md for details
+W0308 11:23:44.883528  1500 tf_logging.py:125] From D:\Project\FinalYearProjects\models\research\object_detection\exporter.py:434: print_model_analysis (from tensorflow.contrib.tfprof.model_analyzer) is deprecated and will be removed after 2018-01-01.
+Instructions for updating:
+Use `tf.profiler.profile(graph, run_meta, op_log, cmd, options)`. Build `options` with `tf.profiler.ProfileOptionBuilder`. See README.md for details
+272 ops no flops stats due to incomplete shapes.
+Parsing Inputs...
+Incomplete shape.
+
+=========================Options=============================
+-max_depth                  10000
+-min_bytes                  0
+-min_peak_bytes             0
+-min_residual_bytes         0
+-min_output_bytes           0
+-min_micros                 0
+-min_accelerator_micros     0
+-min_cpu_micros             0
+-min_params                 0
+-min_float_ops              0
+-min_occurrence             0
+-step                       -1
+-order_by                   name
+-account_type_regexes       _trainable_variables
+-start_name_regexes         .*
+-trim_name_regexes          .*BatchNorm.*
+-show_name_regexes          .*
+-hide_name_regexes
+-account_displayed_op_only  true
+-select                     params
+-output                     stdout:
+
+==================Model Analysis Report======================
+Incomplete shape.
+
+Doc:
+scope: The nodes in the model graph are organized by their names, which is hierarchical like filesystem.
+param: Number of parameters (in the Variable).
+
+Profile:
+node name | # parameters
+_TFProfRoot (--/13.47m params)
+  Conv (--/2.65m params)
+    Conv/biases (512, 512/512 params)
+    Conv/weights (3x3x576x512, 2.65m/2.65m params)
+  FirstStageBoxPredictor (--/36.94k params)
+    FirstStageBoxPredictor/BoxEncodingPredictor (--/24.62k params)
+      FirstStageBoxPredictor/BoxEncodingPredictor/biases (48, 48/48 params)
+      FirstStageBoxPredictor/BoxEncodingPredictor/weights (1x1x512x48, 24.58k/24.58k params)
+    FirstStageBoxPredictor/ClassPredictor (--/12.31k params)
+      FirstStageBoxPredictor/ClassPredictor/biases (24, 24/24 params)
+      FirstStageBoxPredictor/ClassPredictor/weights (1x1x512x24, 12.29k/12.29k params)
+  FirstStageFeatureExtractor (--/4.25m params)
+    FirstStageFeatureExtractor/InceptionV2 (--/4.25m params)
+      FirstStageFeatureExtractor/InceptionV2/Conv2d_1a_7x7 (--/2.71k params)
+        FirstStageFeatureExtractor/InceptionV2/Conv2d_1a_7x7/BatchNorm (--/0 params)
+        FirstStageFeatureExtractor/InceptionV2/Conv2d_1a_7x7/depthwise_weights (7x7x3x8, 1.18k/1.18k params)
+        FirstStageFeatureExtractor/InceptionV2/Conv2d_1a_7x7/pointwise_weights (1x1x24x64, 1.54k/1.54k params)
+      FirstStageFeatureExtractor/InceptionV2/Conv2d_2b_1x1 (--/4.10k params)
+        FirstStageFeatureExtractor/InceptionV2/Conv2d_2b_1x1/BatchNorm (--/0 params)
+        FirstStageFeatureExtractor/InceptionV2/Conv2d_2b_1x1/weights (1x1x64x64, 4.10k/4.10k params)
+      FirstStageFeatureExtractor/InceptionV2/Conv2d_2c_3x3 (--/110.59k params)
+        FirstStageFeatureExtractor/InceptionV2/Conv2d_2c_3x3/BatchNorm (--/0 params)
+        FirstStageFeatureExtractor/InceptionV2/Conv2d_2c_3x3/weights (3x3x64x192, 110.59k/110.59k params)
+      FirstStageFeatureExtractor/InceptionV2/Mixed_3b (--/218.11k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_0 (--/12.29k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_0/Conv2d_0a_1x1 (--/12.29k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_0/Conv2d_0a_1x1/weights (1x1x192x64, 12.29k/12.29k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_1 (--/49.15k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_1/Conv2d_0a_1x1 (--/12.29k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_1/Conv2d_0a_1x1/weights (1x1x192x64, 12.29k/12.29k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_1/Conv2d_0b_3x3 (--/36.86k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_1/Conv2d_0b_3x3/weights (3x3x64x64, 36.86k/36.86k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2 (--/150.53k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2/Conv2d_0a_1x1 (--/12.29k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2/Conv2d_0a_1x1/weights (1x1x192x64, 12.29k/12.29k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2/Conv2d_0b_3x3 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2/Conv2d_0b_3x3/weights (3x3x64x96, 55.30k/55.30k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2/Conv2d_0c_3x3 (--/82.94k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2/Conv2d_0c_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_2/Conv2d_0c_3x3/weights (3x3x96x96, 82.94k/82.94k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_3 (--/6.14k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_3/Conv2d_0b_1x1 (--/6.14k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_3/Conv2d_0b_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3b/Branch_3/Conv2d_0b_1x1/weights (1x1x192x32, 6.14k/6.14k params)
+      FirstStageFeatureExtractor/InceptionV2/Mixed_3c (--/259.07k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_0 (--/16.38k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_0/Conv2d_0a_1x1 (--/16.38k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_0/Conv2d_0a_1x1/weights (1x1x256x64, 16.38k/16.38k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_1 (--/71.68k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_1/Conv2d_0a_1x1 (--/16.38k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_1/Conv2d_0a_1x1/weights (1x1x256x64, 16.38k/16.38k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_1/Conv2d_0b_3x3 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_1/Conv2d_0b_3x3/weights (3x3x64x96, 55.30k/55.30k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2 (--/154.62k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2/Conv2d_0a_1x1 (--/16.38k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2/Conv2d_0a_1x1/weights (1x1x256x64, 16.38k/16.38k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2/Conv2d_0b_3x3 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2/Conv2d_0b_3x3/weights (3x3x64x96, 55.30k/55.30k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2/Conv2d_0c_3x3 (--/82.94k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2/Conv2d_0c_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_2/Conv2d_0c_3x3/weights (3x3x96x96, 82.94k/82.94k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_3 (--/16.38k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_3/Conv2d_0b_1x1 (--/16.38k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_3/Conv2d_0b_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_3c/Branch_3/Conv2d_0b_1x1/weights (1x1x256x64, 16.38k/16.38k params)
+      FirstStageFeatureExtractor/InceptionV2/Mixed_4a (--/384.00k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_0 (--/225.28k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_0/Conv2d_0a_1x1 (--/40.96k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_0/Conv2d_0a_1x1/weights (1x1x320x128, 40.96k/40.96k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_0/Conv2d_1a_3x3 (--/184.32k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_0/Conv2d_1a_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_0/Conv2d_1a_3x3/weights (3x3x128x160, 184.32k/184.32k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1 (--/158.72k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1/Conv2d_0a_1x1 (--/20.48k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1/Conv2d_0a_1x1/weights (1x1x320x64, 20.48k/20.48k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1/Conv2d_0b_3x3 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1/Conv2d_0b_3x3/weights (3x3x64x96, 55.30k/55.30k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1/Conv2d_1a_3x3 (--/82.94k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1/Conv2d_1a_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4a/Branch_1/Conv2d_1a_3x3/weights (3x3x96x96, 82.94k/82.94k params)
+      FirstStageFeatureExtractor/InceptionV2/Mixed_4b (--/608.26k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_0 (--/129.02k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_0/Conv2d_0a_1x1 (--/129.02k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_0/Conv2d_0a_1x1/weights (1x1x576x224, 129.02k/129.02k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_1 (--/92.16k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_1/Conv2d_0a_1x1 (--/36.86k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_1/Conv2d_0a_1x1/weights (1x1x576x64, 36.86k/36.86k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_1/Conv2d_0b_3x3 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_1/Conv2d_0b_3x3/weights (3x3x64x96, 55.30k/55.30k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2 (--/313.34k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2/Conv2d_0a_1x1 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2/Conv2d_0a_1x1/weights (1x1x576x96, 55.30k/55.30k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2/Conv2d_0b_3x3 (--/110.59k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2/Conv2d_0b_3x3/weights (3x3x96x128, 110.59k/110.59k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2/Conv2d_0c_3x3 (--/147.46k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2/Conv2d_0c_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_2/Conv2d_0c_3x3/weights (3x3x128x128, 147.46k/147.46k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_3 (--/73.73k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_3/Conv2d_0b_1x1 (--/73.73k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_3/Conv2d_0b_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4b/Branch_3/Conv2d_0b_1x1/weights (1x1x576x128, 73.73k/73.73k params)
+      FirstStageFeatureExtractor/InceptionV2/Mixed_4c (--/663.55k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_0 (--/110.59k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_0/Conv2d_0a_1x1 (--/110.59k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_0/Conv2d_0a_1x1/weights (1x1x576x192, 110.59k/110.59k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_1 (--/165.89k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_1/Conv2d_0a_1x1 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_1/Conv2d_0a_1x1/weights (1x1x576x96, 55.30k/55.30k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_1/Conv2d_0b_3x3 (--/110.59k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_1/Conv2d_0b_3x3/weights (3x3x96x128, 110.59k/110.59k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2 (--/313.34k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2/Conv2d_0a_1x1 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2/Conv2d_0a_1x1/weights (1x1x576x96, 55.30k/55.30k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2/Conv2d_0b_3x3 (--/110.59k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2/Conv2d_0b_3x3/weights (3x3x96x128, 110.59k/110.59k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2/Conv2d_0c_3x3 (--/147.46k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2/Conv2d_0c_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_2/Conv2d_0c_3x3/weights (3x3x128x128, 147.46k/147.46k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_3 (--/73.73k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_3/Conv2d_0b_1x1 (--/73.73k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_3/Conv2d_0b_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4c/Branch_3/Conv2d_0b_1x1/weights (1x1x576x128, 73.73k/73.73k params)
+      FirstStageFeatureExtractor/InceptionV2/Mixed_4d (--/893.95k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_0 (--/92.16k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_0/Conv2d_0a_1x1 (--/92.16k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_0/Conv2d_0a_1x1/weights (1x1x576x160, 92.16k/92.16k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_1 (--/258.05k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_1/Conv2d_0a_1x1 (--/73.73k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_1/Conv2d_0a_1x1/weights (1x1x576x128, 73.73k/73.73k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_1/Conv2d_0b_3x3 (--/184.32k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_1/Conv2d_0b_3x3/weights (3x3x128x160, 184.32k/184.32k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2 (--/488.45k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2/Conv2d_0a_1x1 (--/73.73k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2/Conv2d_0a_1x1/weights (1x1x576x128, 73.73k/73.73k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2/Conv2d_0b_3x3 (--/184.32k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2/Conv2d_0b_3x3/weights (3x3x128x160, 184.32k/184.32k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2/Conv2d_0c_3x3 (--/230.40k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2/Conv2d_0c_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_2/Conv2d_0c_3x3/weights (3x3x160x160, 230.40k/230.40k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_3 (--/55.30k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_3/Conv2d_0b_1x1 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_3/Conv2d_0b_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4d/Branch_3/Conv2d_0b_1x1/weights (1x1x576x96, 55.30k/55.30k params)
+      FirstStageFeatureExtractor/InceptionV2/Mixed_4e (--/1.11m params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_0 (--/55.30k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_0/Conv2d_0a_1x1 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_0/Conv2d_0a_1x1/weights (1x1x576x96, 55.30k/55.30k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_1 (--/294.91k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_1/Conv2d_0a_1x1 (--/73.73k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_1/Conv2d_0a_1x1/weights (1x1x576x128, 73.73k/73.73k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_1/Conv2d_0b_3x3 (--/221.18k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_1/Conv2d_0b_3x3/weights (3x3x128x192, 221.18k/221.18k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2 (--/700.42k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2/Conv2d_0a_1x1 (--/92.16k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2/Conv2d_0a_1x1/weights (1x1x576x160, 92.16k/92.16k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2/Conv2d_0b_3x3 (--/276.48k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2/Conv2d_0b_3x3/weights (3x3x160x192, 276.48k/276.48k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2/Conv2d_0c_3x3 (--/331.78k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2/Conv2d_0c_3x3/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_2/Conv2d_0c_3x3/weights (3x3x192x192, 331.78k/331.78k params)
+        FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_3 (--/55.30k params)
+          FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_3/Conv2d_0b_1x1 (--/55.30k params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_3/Conv2d_0b_1x1/BatchNorm (--/0 params)
+            FirstStageFeatureExtractor/InceptionV2/Mixed_4e/Branch_3/Conv2d_0b_1x1/weights (1x1x576x96, 55.30k/55.30k params)
+  SecondStageBoxPredictor (--/630.83k params)
+    SecondStageBoxPredictor/BoxEncodingPredictor (--/28.70k params)
+      SecondStageBoxPredictor/BoxEncodingPredictor/biases (28, 28/28 params)
+      SecondStageBoxPredictor/BoxEncodingPredictor/weights (1024x28, 28.67k/28.67k params)
+    SecondStageBoxPredictor/ClassPredictor (--/8.20k params)
+      SecondStageBoxPredictor/ClassPredictor/biases (8, 8/8 params)
+      SecondStageBoxPredictor/ClassPredictor/weights (1024x8, 8.19k/8.19k params)
+    SecondStageBoxPredictor/Conv (--/589.89k params)
+      SecondStageBoxPredictor/Conv/biases (64, 64/64 params)
+      SecondStageBoxPredictor/Conv/weights (3x3x1024x64, 589.82k/589.82k params)
+    SecondStageBoxPredictor/Conv_1 (--/4.04k params)
+      SecondStageBoxPredictor/Conv_1/biases (7, 7/7 params)
+      SecondStageBoxPredictor/Conv_1/weights (3x3x64x7, 4.03k/4.03k params)
+  SecondStageFeatureExtractor (--/5.89m params)
+    SecondStageFeatureExtractor/InceptionV2 (--/5.89m params)
+      SecondStageFeatureExtractor/InceptionV2/Mixed_5a (--/1.44m params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_0 (--/294.91k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_0/Conv2d_0a_1x1 (--/73.73k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_0/Conv2d_0a_1x1/weights (1x1x576x128, 73.73k/73.73k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_0/Conv2d_1a_3x3 (--/221.18k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_0/Conv2d_1a_3x3/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_0/Conv2d_1a_3x3/weights (3x3x128x192, 221.18k/221.18k params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1 (--/1.14m params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1/Conv2d_0a_1x1 (--/110.59k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1/Conv2d_0a_1x1/weights (1x1x576x192, 110.59k/110.59k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1/Conv2d_0b_3x3 (--/442.37k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1/Conv2d_0b_3x3/weights (3x3x192x256, 442.37k/442.37k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1/Conv2d_1a_3x3 (--/589.82k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1/Conv2d_1a_3x3/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5a/Branch_1/Conv2d_1a_3x3/weights (3x3x256x256, 589.82k/589.82k params)
+      SecondStageFeatureExtractor/InceptionV2/Mixed_5b (--/2.18m params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_0 (--/360.45k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_0/Conv2d_0a_1x1 (--/360.45k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_0/Conv2d_0a_1x1/weights (1x1x1024x352, 360.45k/360.45k params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_1 (--/749.57k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_1/Conv2d_0a_1x1 (--/196.61k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_1/Conv2d_0a_1x1/weights (1x1x1024x192, 196.61k/196.61k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_1/Conv2d_0b_3x3 (--/552.96k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_1/Conv2d_0b_3x3/weights (3x3x192x320, 552.96k/552.96k params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2 (--/937.98k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2/Conv2d_0a_1x1 (--/163.84k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2/Conv2d_0a_1x1/weights (1x1x1024x160, 163.84k/163.84k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2/Conv2d_0b_3x3 (--/322.56k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2/Conv2d_0b_3x3/weights (3x3x160x224, 322.56k/322.56k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2/Conv2d_0c_3x3 (--/451.58k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2/Conv2d_0c_3x3/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_2/Conv2d_0c_3x3/weights (3x3x224x224, 451.58k/451.58k params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_3 (--/131.07k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_3/Conv2d_0b_1x1 (--/131.07k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_3/Conv2d_0b_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5b/Branch_3/Conv2d_0b_1x1/weights (1x1x1024x128, 131.07k/131.07k params)
+      SecondStageFeatureExtractor/InceptionV2/Mixed_5c (--/2.28m params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_0 (--/360.45k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_0/Conv2d_0a_1x1 (--/360.45k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_0/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_0/Conv2d_0a_1x1/weights (1x1x1024x352, 360.45k/360.45k params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_1 (--/749.57k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_1/Conv2d_0a_1x1 (--/196.61k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_1/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_1/Conv2d_0a_1x1/weights (1x1x1024x192, 196.61k/196.61k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_1/Conv2d_0b_3x3 (--/552.96k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_1/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_1/Conv2d_0b_3x3/weights (3x3x192x320, 552.96k/552.96k params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2 (--/1.04m params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2/Conv2d_0a_1x1 (--/196.61k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2/Conv2d_0a_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2/Conv2d_0a_1x1/weights (1x1x1024x192, 196.61k/196.61k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2/Conv2d_0b_3x3 (--/387.07k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2/Conv2d_0b_3x3/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2/Conv2d_0b_3x3/weights (3x3x192x224, 387.07k/387.07k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2/Conv2d_0c_3x3 (--/451.58k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2/Conv2d_0c_3x3/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_2/Conv2d_0c_3x3/weights (3x3x224x224, 451.58k/451.58k params)
+        SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_3 (--/131.07k params)
+          SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_3/Conv2d_0b_1x1 (--/131.07k params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_3/Conv2d_0b_1x1/BatchNorm (--/0 params)
+            SecondStageFeatureExtractor/InceptionV2/Mixed_5c/Branch_3/Conv2d_0b_1x1/weights (1x1x1024x128, 131.07k/131.07k params)
+
+======================End of Report==========================
+272 ops no flops stats due to incomplete shapes.
+Parsing Inputs...
+Incomplete shape.
+
+=========================Options=============================
+-max_depth                  10000
+-min_bytes                  0
+-min_peak_bytes             0
+-min_residual_bytes         0
+-min_output_bytes           0
+-min_micros                 0
+-min_accelerator_micros     0
+-min_cpu_micros             0
+-min_params                 0
+-min_float_ops              1
+-min_occurrence             0
+-step                       -1
+-order_by                   float_ops
+-account_type_regexes       .*
+-start_name_regexes         .*
+-trim_name_regexes          .*BatchNorm.*,.*Initializer.*,.*Regularizer.*,.*BiasAdd.*
+-show_name_regexes          .*
+-hide_name_regexes
+-account_displayed_op_only  true
+-select                     float_ops
+-output                     stdout:
+
+==================Model Analysis Report======================
+Incomplete shape.
+
+Doc:
+scope: The nodes in the model graph are organized by their names, which is hierarchical like filesystem.
+flops: Number of float operations. Note: Please read the implementation for the math behind it.
+
+Profile:
+node name | # float_ops
+_TFProfRoot (--/2.57k flops)
+  map/while/ToNormalizedCoordinates/Scale/mul (300/300 flops)
+  map/while/ToNormalizedCoordinates/Scale/mul_1 (300/300 flops)
+  map/while/ToNormalizedCoordinates/Scale/mul_2 (300/300 flops)
+  map/while/ToNormalizedCoordinates/Scale/mul_3 (300/300 flops)
+  map_1/while/mul (300/300 flops)
+  map_1/while/mul_1 (300/300 flops)
+  map_1/while/mul_2 (300/300 flops)
+  map_1/while/mul_3 (300/300 flops)
+  GridAnchorGenerator/truediv (12/12 flops)
+  GridAnchorGenerator/mul (12/12 flops)
+  GridAnchorGenerator/mul_1 (12/12 flops)
+  GridAnchorGenerator/mul_2 (12/12 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/Greater_2 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/Greater_3 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/Greater_4 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/Greater_5 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/Greater_6 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_10 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_11 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_12 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_13 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_2 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_3 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_4 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_5 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_6 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_7 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_8 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_9 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/add (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/add_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/ones/Less (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/Less (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/Less_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/ChangeCoordinateFrame/sub (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/ChangeCoordinateFrame/sub_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/ChangeCoordinateFrame/truediv (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/ChangeCoordinateFrame/truediv_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/Greater (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/Minimum (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/Minimum_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/Minimum_2 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/Minimum_3 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/Minimum_4 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/Minimum_5 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/Minimum_6 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/Minimum_7 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/SortByField/Equal (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/SortByField_1/Equal (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/add (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/add_10 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/add_12 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/add_2 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/add_4 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/add_6 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/add_8 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/sub (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/sub_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/sub_2 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/sub_3 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/sub_4 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/sub_5 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/MultiClassNonMaxSuppression/sub_6 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/Greater (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/Greater_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/Greater_2 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/Greater_3 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/Greater_4 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/sub_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/Greater_6 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_10 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_11 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_12 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_13 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_2 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_3 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_4 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_5 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_6 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_7 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_8 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/sub_9 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/add (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/add_1 (1/1 flops)
+  Decode/get_center_coordinates_and_sizes/transpose/sub (1/1 flops)
+  Decode/transpose/sub (1/1 flops)
+  Decode/transpose_1/sub (1/1 flops)
+  Decode_1/get_center_coordinates_and_sizes/transpose/sub (1/1 flops)
+  Decode_1/transpose/sub (1/1 flops)
+  Decode_1/transpose_1/sub (1/1 flops)
+  FirstStageFeatureExtractor/GreaterEqual (1/1 flops)
+  FirstStageFeatureExtractor/GreaterEqual_1 (1/1 flops)
+  GridAnchorGenerator/add_3 (1/1 flops)
+  GridAnchorGenerator/add_4 (1/1 flops)
+  GridAnchorGenerator/assert_equal/Equal (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/Less (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/Less_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/MultiClassNonMaxSuppression/Greater (1/1 flops)
+  GridAnchorGenerator/mul_7 (1/1 flops)
+  GridAnchorGenerator/mul_8 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/MultiClassNonMaxSuppression/Minimum (1/1 flops)
+  GridAnchorGenerator/zeros/Less (1/1 flops)
+  Preprocessor/map/while/Less (1/1 flops)
+  Preprocessor/map/while/Less_1 (1/1 flops)
+  Preprocessor/map/while/ResizeToRange/Greater (1/1 flops)
+  Preprocessor/map/while/ResizeToRange/Maximum (1/1 flops)
+  Preprocessor/map/while/ResizeToRange/Minimum (1/1 flops)
+  Preprocessor/map/while/ResizeToRange/mul (1/1 flops)
+  Preprocessor/map/while/ResizeToRange/mul_1 (1/1 flops)
+  Preprocessor/map/while/ResizeToRange/mul_2 (1/1 flops)
+  Preprocessor/map/while/ResizeToRange/mul_3 (1/1 flops)
+  Preprocessor/map/while/ResizeToRange/truediv (1/1 flops)
+  Preprocessor/map/while/ResizeToRange/truediv_1 (1/1 flops)
+  Preprocessor/map/while/add (1/1 flops)
+  Preprocessor/map/while/add_1 (1/1 flops)
+  map/while/Less (1/1 flops)
+  map/while/Less_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression_1/map/while/PadOrClipBoxList/Greater_5 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/MultiClassNonMaxSuppression/Minimum_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/MultiClassNonMaxSuppression/SortByField/Equal (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/MultiClassNonMaxSuppression/SortByField_1/Equal (1/1 flops)
+  map/while/ToNormalizedCoordinates/truediv (1/1 flops)
+  map/while/ToNormalizedCoordinates/truediv_1 (1/1 flops)
+  map/while/add (1/1 flops)
+  map/while/add_1 (1/1 flops)
+  map_1/while/Less (1/1 flops)
+  map_1/while/Less_1 (1/1 flops)
+  map_1/while/add (1/1 flops)
+  map_1/while/add_1 (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/MultiClassNonMaxSuppression/add (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/MultiClassNonMaxSuppression/sub (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/Greater (1/1 flops)
+  BatchMultiClassNonMaxSuppression/map/while/PadOrClipBoxList/Greater_1 (1/1 flops)
+  mul (1/1 flops)
+  mul_1 (1/1 flops)
+
+======================End of Report==========================
+2019-03-08 11:23:49.393545: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+
+D:\Project\FinalYearProjects\models\research>
